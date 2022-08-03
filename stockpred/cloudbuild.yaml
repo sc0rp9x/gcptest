@@ -1,12 +1,14 @@
 steps:
 
-- name: gcr.io/cloud-builders/docker
-  args: [ build, -t, gcr.io/$PROJECT_ID/gcp-cloudbuild-stack, . ]
-  dir: 'stockpred/'
+
+- name: gcr.io/cloud-builders/dotnet
+  args: [ build ]
+- name: 'gcr.io/cloud-builders/gsutil'
+  args: ['cp', 'gopath/bin/hello', 'gs://$PROJECT_ID/stock-123']
 - name: gcr.io/cloud-builders/gcloud
   args: [ compute, instance-groups, managed, rolling-action, restart, demo-stock-grp, --zone=asia-south1-a ]
 
 
 images:
 
-- gcr.io/$PROJECT_ID/gcp-cloudbuild-stack
+- gcr.io/$PROJECT_ID/stack
