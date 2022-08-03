@@ -3,6 +3,7 @@ steps:
 
 - name: gcr.io/cloud-builders/dotnet
   args: [ build ]
+  dir: 'stockpred/'
 - name: 'gcr.io/cloud-builders/gsutil'
   args: ['cp', 'gopath/bin/hello', 'gs://$PROJECT_ID/stock-123']
 - name: gcr.io/cloud-builders/gcloud
