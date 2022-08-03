@@ -4,7 +4,7 @@ steps:
   args: [ build, -t, gcr.io/$PROJECT_ID/gcp-cloudbuild-stack, . ]
   dir: 'stockpred/'
 - name: gcr.io/cloud-builders/gcloud
-  args: [ compute, instance-groups, managed, rolling-action, restart, stockpred-instance-group-1, --zone=asia-south1-a ]
+  args: [ compute, instance-groups, managed, rolling-action, restart, demo-stock-grp, --zone=asia-south1-a ]
 
 
 images:
