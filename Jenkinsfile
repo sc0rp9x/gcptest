@@ -12,7 +12,7 @@ pipeline {
        sh 'pwd'
         dir('stockpred') {
           sh 'pwd'
-         sh 'sudo dotnet build  /var/lib/jenkins/workspace/gcptest_main/stockpred'
+         sh 'dotnet build'
          sh 'sudo dotnet build'
       }
       }
