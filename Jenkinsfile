@@ -45,9 +45,15 @@ pipeline {
              }
         }
     stage('Deploy') {
-      steps {
-        sh 'echo "Hello Deploy"'
-      }
+       steps{
+              dir('Jenkins-.NET-Core-CI-CD-pipeline-dev') {
+               sh '''for pid in $(lsof -t -i:80); do
+                       kill -9 $pid
+               done'''
+               sh 'cd WebApplication/bin/Release/netcoreapp3.1/publish/'
+               sh 'nohup dotnet WebApplication.dll --urls="http://34.100.229.18:80" --ip="34.100.229.18" --port=80 --no-restore > /dev/null 2>&1 &'
+             }
+       }
     }
 
   }
