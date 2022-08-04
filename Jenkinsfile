@@ -21,16 +21,7 @@ pipeline {
              }
             }
          }
-  
-    
-    stage('Build') {
-     steps {
-       sh 'pwd'
-        dir('stockpred') {
-          dotnetBuild
-      }
-      }
-    }
+ 
 
     stage('Test') {
       steps {
