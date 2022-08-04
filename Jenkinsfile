@@ -42,7 +42,7 @@ pipeline {
 		
 		sshagent(credentials : ['stock-host-machine'], ignoreMissing: true) {
 		dir('Jenkins-.NET-Core-CI-CD-pipeline-dev') {
-               sh '''ssh -o StrictHostKeyChecking=no sakthi_dhandapani@34.100.229.18 ./home/sakthi_dhandapani/invoke.sh'''
+               sh '''ssh -o StrictHostKeyChecking=no sakthi_dhandapani@34.100.229.18 '''
 	       sh 'pwd'
 	       sh 'ls'
 	       sh 'scp $WORKSPACE/bin sakthi_dhandapani@34.100.229.18:/jenkins/'
