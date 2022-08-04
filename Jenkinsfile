@@ -53,9 +53,9 @@ pipeline {
                sh 'cd WebApplication/bin/Release/netcoreapp3.1/publish/'
                sh 'nohup dotnet WebApplication.dll --urls="http://34.100.229.18:80" --ip="34.100.229.18" --port=80 --no-restore > /dev/null 2>&1 &'
                 
-            script{
-			    sshagent(credentials : ['machine'], ignoreMissing: true) {    
-			    sh  '''ssh -o StrictHostKeyChecking=no <IPADDRESS> <SENDFILE>'''
+            	script{
+		    sshagent(credentials : ['stock-host-machine'], ignoreMissing: true) {    
+			    sh  '''ssh -o StrictHostKeyChecking=no 34.100.229.18 ./home/sakthi_dhandapani/invoke.sh'''
 		      }
 		     }
              }
