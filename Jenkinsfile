@@ -42,11 +42,12 @@ pipeline {
                sh 'dotnet publish WebApplication/WebApplication.csproj --configuration Release --no-restore'
                }
             }
-    }
-	post {
+	    post {
        success {
         build : 'testing_build'
       }
     }
+    }
+	
   }
 }
