@@ -7,13 +7,13 @@ pipeline {
          git branch: '$BRANCH_NAME', credentialsId:'stock-user-2022', url:'https://github.com/sc0rp9x/gcptest.git'
       }
     }
-   // stage('Restore packages'){
-     //      steps{
-       //      dir('stockpred') {
-         //      sh 'dotnet restore stockpred.sln'
-           //  }
-            //}
-    //}        
+    stage('Restore packages'){
+         steps{
+             dir('stockpred') {
+               sh 'dotnet restore stockpred.sln'
+             }
+            }
+    }        
     stage('Clean'){
            steps{
              dir('stockpred') {
