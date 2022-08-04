@@ -10,7 +10,7 @@ pipeline {
   stage('Clean') {
       steps {
         sh 'echo "Clean"'
-        sh cd stockpred
+        
         cd /var/lib/jenkins/workspace/gcptest_main/stockpred
         
         sh pwd
