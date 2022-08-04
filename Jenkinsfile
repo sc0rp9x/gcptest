@@ -10,14 +10,14 @@ pipeline {
   stage('Clean') {
       steps {
         dir('stockpred') {
-         sh 'dotnet clean'
+         sh 'sudo dotnet clean'
       }
       }
     }
     stage('Build') {
      steps {
         dir('stockpred') {
-         sh 'dotnet build'
+         sh 'sudo dotnet build'
       }
       }
     }
