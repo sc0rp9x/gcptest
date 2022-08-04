@@ -11,7 +11,7 @@ pipeline {
     stage('Clean') {
      steps {
         dir('stockpred') {
-         sh 'dotnet clean'
+         dotnetClean
       }
       }
     }
