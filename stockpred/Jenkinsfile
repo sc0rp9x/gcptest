@@ -4,6 +4,7 @@ pipeline {
   stage('Clean') {  
    steps {
      sh 'echo "Clean"'
+     sh 'cd stockpred'
      sh 'dotnet clean'
    }  
   }  
