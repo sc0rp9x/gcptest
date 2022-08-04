@@ -37,12 +37,8 @@ pipeline {
 		
 		sshagent(credentials : ['stock-host-machine'], ignoreMissing: true) {
 		dir('Jenkins-.NET-Core-CI-CD-pipeline-dev') {
-               sh '''ssh -o StrictHostKeyChecking=no sakthi_dhandapani@34.100.229.18 '''
+               sh '''ssh -o StrictHostKeyChecking=no sakthi_dhandapani@34.100.229.18 ./home/sakthi_dhandapani/deploy.sh'''
 	       sh 'scp -r WebApplication/bin/Release/netcoreapp3.1/* sakthi_dhandapani@34.100.229.18:/var/www/html/stockpred'
-		sh 'cd ~'
-		sh 'pwd'
-	       sh 'cd /home/sakthi_dhandapani'
-	       sh './deploy.sh'
              }
 	     }
 	     }
