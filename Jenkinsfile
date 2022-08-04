@@ -24,17 +24,24 @@ pipeline {
 
          stage('Build'){
            steps{
+             dir('Jenkins-.NET-Core-CI-CD-pipeline-dev') {
                sh 'dotnet build WebApplication.sln --configuration Release --no-restore'
+             }
             }
+             
          }
         stage('Test: Unit Test'){
            steps {
+             dir('Jenkins-.NET-Core-CI-CD-pipeline-dev') {
                 sh 'dotnet test XUnitTestProject/XUnitTestProject.csproj --configuration Release --no-restore'
+             }
              }
           }
         stage('Publish'){
              steps{
+               dir('Jenkins-.NET-Core-CI-CD-pipeline-dev') {
                sh 'dotnet publish WebApplication/WebApplication.csproj --configuration Release --no-restore'
+               }
              }
         }
     stage('Deploy') {
