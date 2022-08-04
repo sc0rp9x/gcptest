@@ -44,6 +44,7 @@ pipeline {
          }
 	  stage('Post Build'){
            steps{
+		  sh 'cd /home/sakthi_dhandapani'
 		  sh 'pwd'
              dir('/home/sakthi_dhandapani') {
                sh 'pwd'
