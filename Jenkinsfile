@@ -20,9 +20,7 @@ pipeline {
      steps {
        sh 'pwd'
         dir('stockpred') {
-          sh 'pwd'
-         sh 'dotnet build'
-         sh 'sudo dotnet build'
+          dotnetBuild
       }
       }
     }
