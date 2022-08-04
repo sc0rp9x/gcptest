@@ -39,11 +39,10 @@ pipeline {
      stage('Deploy'){
 	    
              steps{
-		
-                
-               sh '''ssh -o StrictHostKeyChecking=yes sakthi_dhandapani@34.100.229.18 ./home/sakthi_dhandapani/invoke.sh'''
+		sshagent(credentials : ['stock-host-machine'], ignoreMissing: true) {         
+               sh '''ssh -o StrictHostKeyChecking=no sakthi_dhandapani@34.100.229.18 ./home/sakthi_dhandapani/invoke.sh'''
              }
-	     
+	     }
     }
 	
   }
