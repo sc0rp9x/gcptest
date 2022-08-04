@@ -9,9 +9,9 @@ pipeline {
     }
     stage('Restore packages'){
            steps{
-             dir('Jenkins-.NET-Core-CI-CD-pipeline-dev') {
-               sh 'dotnet restore WebApplication.sln'
-             }
+            // dir('Jenkins-.NET-Core-CI-CD-pipeline-dev') {
+               sh 'dotnet restore Jenkins-.NET-Core-CI-CD-pipeline-dev/WebApplication.sln'
+             //}
             }
     }        
     stage('Clean'){
