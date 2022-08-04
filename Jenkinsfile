@@ -21,13 +21,7 @@ pipeline {
              }
             }
          }
-    stage('Clean') {
-     steps {
-        dir('stockpred') {
-         dotnetClean
-      }
-      }
-    }
+  
     
     stage('Build') {
      steps {
