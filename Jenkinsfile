@@ -9,14 +9,14 @@ pipeline {
     }
     stage('Restore packages'){
            steps{
-             dir('stockpred') {
+             dir('Jenkins-.NET-Core-CI-CD-pipeline-dev') {
                sh 'dotnet restore WebApplication.sln'
              }
             }
          }        
         stage('Clean'){
            steps{
-             dir('stockpred') {
+             dir('Jenkins-.NET-Core-CI-CD-pipeline-dev') {
                sh 'dotnet clean WebApplication.sln --configuration Release'
              }
             }
