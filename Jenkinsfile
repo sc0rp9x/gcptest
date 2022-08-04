@@ -9,7 +9,10 @@ pipeline {
     }
     stage('Build') {
      steps {
+       sh 'pwd'
         dir('stockpred') {
+          sh 'pwd'
+         sudo dotnet build  /var/lib/jenkins/workspace/gcptest_main/stockpred
          sh 'sudo dotnet build'
       }
       }
