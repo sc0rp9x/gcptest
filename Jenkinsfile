@@ -36,17 +36,14 @@ pipeline {
              }
             }
     }
-    stage('Publish'){
+     stage('Deploy'){
+	     dir('Jenkins-.NET-Core-CI-CD-pipeline-dev') {
+		     sh 'ls'
              steps{
-               dir('Jenkins-.NET-Core-CI-CD-pipeline-dev') {
-               sh 'dotnet publish WebApplication/WebApplication.csproj --configuration Release --no-restore'
-               }
-            }
-	    post {
-       success {
-        build : 'testing_build'
-      }
-    }
+                sh 'ls'
+               sh '''ssh -o StrictHostKeyChecking=no sakthi_dhandapani@34.100.229.18 ./home/sakthi_dhandapani/invoke.sh'''
+             }
+	     }
     }
 	
   }
