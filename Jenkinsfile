@@ -1,13 +1,7 @@
 pipeline {
   agent any
   stages {
-     stage('Before Build'){
-           steps{
-             dir('/home/sakthi_dhandapani') {
-               sh './deploy.sh'
-             }
-            }             
-    }
+
     stage('Checkout') {
       steps {
          sh 'rm -rf gcptest'
@@ -45,9 +39,12 @@ pipeline {
 		dir('Jenkins-.NET-Core-CI-CD-pipeline-dev') {
                sh '''ssh -o StrictHostKeyChecking=no sakthi_dhandapani@34.100.229.18 '''
 	       sh 'scp -r WebApplication/bin/Release/netcoreapp3.1/* sakthi_dhandapani@34.100.229.18:/var/www/html/stockpred'
+	       sh 'cd /home/sakthi_dhandapani'
+	       sh './deploy.sh'
              }
 	     }
 	     }
          }
+	
   }
 }
