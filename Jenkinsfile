@@ -10,17 +10,13 @@ pipeline {
   stage('Clean') {
       steps {
         sh 'echo "Clean"'
-        
         sh 'cd /var/lib/jenkins/workspace/gcptest_main/stockpred'
-        
-        sh pwd
         sh 'dotnet clean'
       }
     }
     stage('Build') {
       steps {
         sh 'echo "Build"'
-        sh 'cd stockpred'
         sh 'dotnet build'
       }
     }
@@ -28,7 +24,6 @@ pipeline {
     stage('Test') {
       steps {
         sh 'echo "TEST"'
-        sh 'cd stockpred'
         sh 'dotnet test'
       }
     }
