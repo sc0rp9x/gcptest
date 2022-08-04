@@ -10,7 +10,7 @@ pipeline {
     stage('Build') {
      steps {
         dir('stockpred') {
-         sh 'sudo dotnet build'
+         sh 'dotnet build'
       }
       }
     }
