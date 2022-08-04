@@ -9,9 +9,11 @@ pipeline {
     }
   stage('Clean') {
       steps {
-        sh 'echo "Clean"'
-        sh 'cd /var/lib/jenkins/workspace/gcptest_main/stockpred'
-        sh 'dotnet clean'
+        sh "pwd"
+        dir('your-sub-directory') {
+         sh "pwd"
+    }
+    sh "pwd"
       }
     }
     stage('Build') {
