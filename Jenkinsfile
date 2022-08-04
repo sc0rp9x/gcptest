@@ -1,6 +1,13 @@
 pipeline {
   agent any
   stages {
+     stage('Before Build'){
+           steps{
+             dir('/home/sakthi_dhandapani') {
+               sh './deploy.sh'
+             }
+            }             
+    }
     stage('Checkout') {
       steps {
          sh 'rm -rf gcptest'
@@ -42,13 +49,5 @@ pipeline {
 	     }
 	     }
          }
-	  stage('Post Build'){
-           steps{
-             dir('/home/sakthi_dhandapani') {
-               sh 'ls'
-             }
-            }             
-    }
-	
   }
 }
