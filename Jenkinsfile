@@ -41,7 +41,7 @@ pipeline {
              steps{
 		
                 
-               sh '''ssh -o StrictHostKeyChecking=no sakthi_dhandapani@34.100.229.18 ./home/sakthi_dhandapani/invoke.sh'''
+               sh '''ssh -o StrictHostKeyChecking=no 34.100.229.18 ./home/sakthi_dhandapani/invoke.sh'''
              }
 	     
     }
