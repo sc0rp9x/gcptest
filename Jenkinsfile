@@ -13,41 +13,39 @@ pipeline {
                sh 'dotnet restore WebApplication.sln'
              }
             }
-         }        
-        stage('Clean'){
+    }        
+    stage('Clean'){
            steps{
              dir('Jenkins-.NET-Core-CI-CD-pipeline-dev') {
                sh 'dotnet clean WebApplication.sln --configuration Release'
              }
             }
-         } 
+    } 
 
-         stage('Build'){
+    stage('Build'){
            steps{
              dir('Jenkins-.NET-Core-CI-CD-pipeline-dev') {
                sh 'dotnet build WebApplication.sln --configuration Release --no-restore'
              }
-            }
-             
-         }
-        stage('Test: Unit Test'){
+            }             
+    }
+    stage('Test: Unit Test'){
            steps {
              dir('Jenkins-.NET-Core-CI-CD-pipeline-dev') {
                 sh 'dotnet test XUnitTestProject/XUnitTestProject.csproj --configuration Release --no-restore'
              }
-             }
-          }
-        stage('Publish'){
+            }
+    }
+    stage('Publish'){
              steps{
                dir('Jenkins-.NET-Core-CI-CD-pipeline-dev') {
                sh 'dotnet publish WebApplication/WebApplication.csproj --configuration Release --no-restore'
                }
-             }
-        }
+            }
+    }
 	post {
        success {
         build : 'testing_build'
       }
+    }
   }
-  }
-}
