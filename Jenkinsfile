@@ -7,6 +7,15 @@ pipeline {
          git branch: '$BRANCH_NAME', credentialsId:'stock-user-2022', url:'https://github.com/sc0rp9x/gcptest.git'
       }
     }
+    
+    stage('Clean') {
+     steps {
+        dir('stockpred') {
+         sh 'dotnet clean'
+      }
+      }
+    }
+    
     stage('Build') {
      steps {
        sh 'pwd'
