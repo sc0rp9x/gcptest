@@ -1,6 +1,12 @@
 pipeline {  
  agent any  
- stages {  
+ stages {
+  stage('Clean') {  
+   steps {
+     sh 'echo "Clean"'
+     sh 'dotnet clean'
+   }  
+  }  
   stage('Checkout') {  
    steps {
      sh 'echo "Hello World"'
