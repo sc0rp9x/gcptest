@@ -9,9 +9,9 @@ pipeline {
     }
     stage('Restore packages'){
            steps{
-            // dir('Jenkins-.NET-Core-CI-CD-pipeline-dev') {
+             dir('Jenkins-.NET-Core-CI-CD-pipeline-dev') {
                sh 'dotnet restore Jenkins-.NET-Core-CI-CD-pipeline-dev/WebApplication.sln'
-             //}
+             }
             }
     }        
     stage('Clean'){
@@ -41,7 +41,7 @@ pipeline {
              steps{
 		
                 
-               sh '''ssh -o StrictHostKeyChecking=no 34.100.229.18 ./home/sakthi_dhandapani/invoke.sh'''
+               sh '''ssh -o StrictHostKeyChecking=yes sakthi_dhandapani@34.100.229.18 ./home/sakthi_dhandapani/invoke.sh'''
              }
 	     
     }
