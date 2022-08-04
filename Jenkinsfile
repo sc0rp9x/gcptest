@@ -11,7 +11,7 @@ pipeline {
       steps {
         sh 'echo "Clean"'
         
-        cd /var/lib/jenkins/workspace/gcptest_main/stockpred
+        sh 'cd /var/lib/jenkins/workspace/gcptest_main/stockpred'
         
         sh pwd
         sh 'dotnet clean'
