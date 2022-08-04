@@ -10,21 +10,21 @@ pipeline {
   stage('Clean') {
       steps {
         sh 'echo "Clean"'
-        sh 'sudo cd /var/lib/jenkins/workspace/gcptest_main/stockpred'
-        sh 'sudo dotnet clean'
+        sh 'cd /var/lib/jenkins/workspace/gcptest_main/stockpred'
+        sh 'dotnet clean'
       }
     }
     stage('Build') {
       steps {
         sh 'echo "Build"'
-        sh 'sudo dotnet build'
+        sh 'dotnet build'
       }
     }
 
     stage('Test') {
       steps {
         sh 'echo "TEST"'
-        sh 'sudo dotnet test'
+        sh 'dotnet test'
       }
     }
 
