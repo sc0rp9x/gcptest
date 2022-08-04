@@ -9,17 +9,16 @@ pipeline {
     }
   stage('Clean') {
       steps {
-        sh "pwd"
-        dir('your-sub-directory') {
-         sh "pwd"
-    }
-    sh "pwd"
+        dir('stockpred') {
+         sh 'dotnet clean'
+      }
       }
     }
     stage('Build') {
-      steps {
-        sh 'echo "Build"'
-        sh 'dotnet build'
+     steps {
+        dir('stockpred') {
+         sh 'dotnet build'
+      }
       }
     }
 
