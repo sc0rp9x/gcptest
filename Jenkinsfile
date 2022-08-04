@@ -20,22 +20,23 @@ pipeline {
                sh 'dotnet clean WebApplication.sln --configuration Release'
              }
             }
+         } 
+
+         stage('Build'){
+           steps{
+               sh 'dotnet build WebApplication.sln --configuration Release --no-restore'
+            }
          }
- 
-
-    stage('Test') {
-      steps {
-        sh 'echo "TEST"'
-        sh 'dotnet test'
-      }
-    }
-
-    stage('Release') {
-      steps {
-        sh 'echo "Release"'
-      }
-    }
-
+        stage('Test: Unit Test'){
+           steps {
+                sh 'dotnet test XUnitTestProject/XUnitTestProject.csproj --configuration Release --no-restore'
+             }
+          }
+        stage('Publish'){
+             steps{
+               sh 'dotnet publish WebApplication/WebApplication.csproj --configuration Release --no-restore'
+             }
+        }
     stage('Deploy') {
       steps {
         sh 'echo "Hello Deploy"'
